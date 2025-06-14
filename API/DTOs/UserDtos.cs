@@ -37,6 +37,9 @@ namespace API.DTOs
         public string LastName { get; set; } = string.Empty;
         
         public bool IsActive { get; set; } = true;
+        [DataType(DataType.Date)]
+        [RegularExpression(@"^\d{4}-\d{2}-\d{2}$", ErrorMessage = "Date must be in YYYY-MM-DD format")]
+        public string? DateOfBirth { get; set; }
     }
 
     public class UserResponseDto
