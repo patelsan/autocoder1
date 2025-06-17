@@ -11,6 +11,7 @@ namespace API.Models
         public string LastName { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public bool IsActive { get; set; } = true;
+        // Verified DateOfBirth property present for backward compatibility
         [DataType(DataType.Date)]
         [RegularExpression(@"^\d{4}-\d{2}-\d{2}$", ErrorMessage = "Date must be in YYYY-MM-DD format")]
         public DateTime? DateOfBirth { get; set; }
