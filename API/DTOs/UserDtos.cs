@@ -18,6 +18,7 @@ namespace API.DTOs
         
         [DataType(DataType.Date)]
         public DateTime? DateOfBirth { get; set; }
+        public bool IsEmailVerified { get; set; } = false;
     }
 
     public class UserUpdateDto
