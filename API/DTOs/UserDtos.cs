@@ -50,5 +50,6 @@ namespace API.DTOs
         public string LastName { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
         public bool IsActive { get; set; }
+        public DateTime? DateOfBirth { get; set; }
     }
 } 

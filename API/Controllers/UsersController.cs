@@ -52,7 +52,14 @@ namespace API.Controllers
         [ProducesResponseType(typeof(UserResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<UserResponseDto>> UpdateUser(int id, UserUpdateDto userUpdateDto)
+            if(!string.IsNullOrEmpty(userUpdateDto.DateOfBirth))
+            {
+                if(!DateTime.TryParse(userUpdateDto.DateOfBirth, out _))
+                {
+                    return BadRequest("Invalid dateOfBirth value. Expected format is YYYY-MM-DD.");
+                }
+            }
+            var user = await _userService.UpdateUserAsync(id, userUpdateDto);
         {
             var user = await _userService.UpdateUserAsync(id, userUpdateDto);
             
